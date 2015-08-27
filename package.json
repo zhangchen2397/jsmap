@@ -1,6 +1,6 @@
 {
   "name": "jsmap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Automatically generate jsmap and basic build.conf",
   "homepage": "https://github.com/zhangchen2397/jsmap.git",
   "keywords": [
