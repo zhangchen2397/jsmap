@@ -1,3 +1,9 @@
+/**
+ * js模块依赖分析
+ * 自动生成jsmap及基础的打包配置build.conf
+ * @author zhangchen297@126.com
+ */
+
 'use strict';
 
 var fs = require('fs'),
