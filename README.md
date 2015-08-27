@@ -27,7 +27,7 @@ gd -v  //0.0.2 安装成功
 这里准备了一个demo示例项目，该目录结构和我们项目基本一致
 
 ```
-https://github.com/zhangchen2397/jsmap-demo.git
+git clone https://github.com/zhangchen2397/jsmap-demo.git
 
 cd ./jsmap-demo/news 
 ```
