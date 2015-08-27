@@ -17,57 +17,42 @@
 **a. 安装** 
 
 ```
-npm install generate-jsmap -g
+npm install jsmap -g
+
+gd -v  //0.0.2 安装成功
 ```
 
-**b. 进入示例项目所有目录**
+**b. 进入示例项目**
 
 这里准备了一个demo示例项目，该目录结构和我们项目基本一致
 
 ```
-git clone https://github.com/zhangchen2397/dependency.git
+https://github.com/zhangchen2397/jsmap-demo.git
 
-cd ./dependency/demo
+cd ./jsmap-demo/news 
 ```
 
-进入`demo`目录后，注意此时项目中没有`build.conf`文件，在`index.jsp`文件中，不管是线上还是线下`jsmap`都为空，且前后多我注释，如下：
+注意示例项目中包含两个目录，`frontend`为前端组件库目录，`news`为项目所有目录，平级放置即可
+
+进入`news`目录后，注意此时项目中没有`build.conf`文件，在`index.jsp`文件中，不管是线上还是线下`jsmap`都为空，且前后多我注释，如下：
 
 ```javascript
-
-<% if (!isTest) { %>
-    <script type="text/javascript" id="file_config">
-        var g_config = {
-            //onlineJsmapStart
-            jsmap: {},
-            //onlineJsmapEnd
-            testEnv: false,
-            staticPath: '/infocdn/wap30/info_app/travel',
-            serverDomain: 'http://infocdn.3g.qq.com/g/storeinc',
-            buildType: 'project',
-            storeInc: {
-                'store': true,
-                'inc': true,
-                'debug': false
-            }
-        };
-    </script>
-<% } else { %>
-    <script>
-        var g_config = {
-            //envJsmapStart
-            jsmap: {},
-            //envJsmapEnd
-            testEnv: true,
-            staticPath: '/infoapp/travel/touch',
-            buildType: 'project',
-            storeInc: {
-                'store': false,
-                'inc': false,
-                'debug': true
-            }
-        };
-    </script>
-<% } %>
+<script type="text/javascript" id="file_config">
+    var g_config = {
+        //onlineJsmapStart
+        jsmap: {},
+        //onlineJsmapEnd
+        testEnv: false
+    };
+</script>
+<script>
+    var g_config = {
+        //envJsmapStart
+        jsmap: {},
+        //envJsmapEnd
+        testEnv: true
+    };
+</script>
 ```
 
 `jsmap`前后的注释不要删除，是用来自动生成`jsmap`的标记，其余的配置和之前一样写就行。这样后续开发或上线都不需要手动添加`jsmap`了。
@@ -75,30 +60,35 @@ cd ./dependency/demo
 **c. 运行命令`gd`**
 
 ```
-gd [buildConfPath] [jsmapPath]
+gd [mtConfigPath] [-w]
+
+-- mtConfigPath jsmap配置所有目录
+-- -w 是否启动监听文件夹，实时生成build.conf及jsmap
 ```
 
-如目录结构和demo示例一致，即`jsmap`所在的`index.jsp`及`build.conf`所在的目录都在项目的根目录下，直接运行`gd`命令即可：
+如目录结构和demo示例一致，即`jsmap`在`index.jsp`文件中，且`index.jsp`在的项目的根目录下，直接运行`gd`命令即可：
 
 ```
-//在demo目录下直接运行`gd`命令
+//在`news`目录下直接运行`gd`命令
 
 gd
 ```
 
-运行后发现在项目根目录下自动生成了`build.conf`配置文件，合并的基本规则为除`pages`目录下的文件合并为一个包，`pages`下的文件单独打包，线上大部分项目也都是这种合并规则，这种情况下，所有的开发过程无需关心`build.conf`及`jsmap`了。
+运行后发现在项目根目录下自动生成了`build.conf`配置文件及`dependency.json`模块依赖文件，合并的基本规则为除`pages`目录下的文件合并为一个包，`pages`下的文件单独打包，线上大部分项目也都是这种合并规则，这种情况下，所有的开发过程无需关心`build.conf`及`jsmap`了。
 
 如项目打包比较复杂，直接修改`build.conf`，`jsmap`会同步自动更新
 
+`dependency.json`模块依赖文件包含所有的模块依赖关系配置表
+
 **d. 更多使用示例**
 
-如`jsmap`不在`index.jsp`中，或`build.conf`不在项目所在目录下，通过`gd`参数也可以单独指定
+如`jsmap`不在`index.jsp`中，开启文件夹监听模块，通过`gd`参数也可以单独指定
 
 ```
-gd ./conf/build.conf ./mt_config.jsp
+gd ./conf/build.conf -w
 ```
 
-当`build.conf`有修改或有增加删除js文件时，终端实时提示生成jsmap是否成功或失败，如：
+当监听的文件中依赖关系有变化时，终端实时提示生成jsmap是否成功或失败，如：
 
 ![demo]( http://zhangchen2397.github.io/dependency/doc/demo.png "demo" )
 
