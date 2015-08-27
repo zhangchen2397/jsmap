@@ -1,0 +1,51 @@
+{
+  "name": "generate-jsmap",
+  "version": "0.0.1",
+  "description": "Automatically generate jsmap and basic build.conf",
+  "homepage": "https://github.com/zhangchen2397/dependency.git",
+  "keywords": [
+    "jsmap"
+  ],
+  "author": {
+    "name": "zhangchen2397"
+  },
+  "dependencies": {
+    "js-beautify": "~1.5.4",
+    "watch": "~0.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangchen2397/dependency.git"
+  },
+  "main": "./src/gd.js",
+  "bin": {
+    "gd": "./bin/gd"
+  },
+  "license": "MIT",
+  "gitHead": "c070aed16dc515852612dd19c8c4fae94fc83f27",
+  "bugs": {
+    "url": "https://github.com/zhangchen2397/dependency/issues"
+  },
+  "_id": "generate-jsmap@0.0.11",
+  "scripts": {},
+  "_shasum": "8a375736b3ee5c5369fec13344d4286dee102c6f",
+  "_from": "generate-jsmap@*",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "zhangchen2397",
+    "email": "zhangchen2397@126.com"
+  },
+  "maintainers": [
+    {
+      "name": "zhangchen2397",
+      "email": "zhangchen2397@126.com"
+    }
+  ],
+  "dist": {
+    "shasum": "8a375736b3ee5c5369fec13344d4286dee102c6f",
+    "tarball": "http://registry.npmjs.org/generate-jsmap/-/generate-jsmap-0.0.11.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/generate-jsmap/-/generate-jsmap-0.0.11.tgz",
+  "readme": "ERROR: No README data found!"
+}

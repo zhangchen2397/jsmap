@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fs = require('fs'),
+    gd = require('../src/gd.js');
+
+var version = require('../package.json').version;
+
+var args = process.argv.slice(2);
+
+var config = {
+    mtConfigPath: args[0] || './index.jsp',
+    isWatch: args[1] || false
+};
+
+if (/-v|-version/.test(args[0])) {
+    process.stdout.write(version + '\n');
+    process.exit();
+}
+
+if (!fs.existsSync(config.mtConfigPath)) {
+    process.stdout.write('mtConfigPath no exists!' + '\n');
+    process.exit();
+}
+
+new gd(config);

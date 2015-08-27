@@ -1,0 +1,1 @@
+define('m_zepto', [], function() { return $; });
