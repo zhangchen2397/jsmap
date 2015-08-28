@@ -91,7 +91,7 @@ gd ./conf/build.conf -w
 
 当监听的文件中依赖关系有变化时，终端实时提示生成jsmap是否成功或失败，如：
 
-![demo]( http://zhangchen2397.github.io/dependency/doc/demo.png "demo" )
+![demo]( https://raw.githubusercontent.com/zhangchen2397/jsmap/master/doc/demo.png "demo" )
 
 注：路径均相对于运行当前命令所在目录。
 
