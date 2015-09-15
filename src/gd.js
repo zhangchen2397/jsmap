@@ -294,7 +294,7 @@ gd.prototype = {
                 var curItem = item.files[i];
                 if (curItem.indexOf('m_') < 0) {
                     var modName = me._getSr(curItem, '/', '.js');
-                    me.onlineJsMap[modName] = item.fvName;
+                    me.onlineJsMap[modName] = '/' + item.fvName;
                     me.envJsMap[modName] = curItem.replace(/^js\//, '/');
                 }
             }
